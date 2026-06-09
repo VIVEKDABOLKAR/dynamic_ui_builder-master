@@ -1,10 +1,20 @@
-// export { DynamicRenderer };
-// export { registerComponent };
-// export { registerAction };
+import { registerBuiltins } from "./registry/registerBuiltins";
 
-export { DynamicRenderer } from "./DynamicRender";
+//init component convert registery
+registerBuiltins();
+
+export { DynamicRenderer } from "./DynamicRenderer";
+
+
+
+export type {
+  DynamicRendererProps
+} from "./DynamicRenderer";
 
 export type {
   ComponentSchema,
   DynamicPageSchema
 } from "./dynamicPageRender/types/JsonSchema";
+
+export { registerComponent }
+  from "./registry/componentRegistry";

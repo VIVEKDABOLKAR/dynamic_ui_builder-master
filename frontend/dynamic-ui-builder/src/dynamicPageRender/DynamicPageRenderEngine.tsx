@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { FormProvider } from '@formily/react';
+import { FormProvider, ISchema } from '@formily/react';
 
 import { convertToFormilySchema } from './JsonConvert';
 import { createForm } from '@formily/core';
@@ -10,10 +10,12 @@ import { DynamicPageSchema } from './types/JsonSchema';
 
 interface DynamicPageRenderEngineProps {
   jsonSchema: DynamicPageSchema;
+  data?: Record<string, any>;
 }
 
 export function DynamicPageRenderEngine({
   jsonSchema,
+  data,
 }: DynamicPageRenderEngineProps): any {
   const formilySchema = useMemo(
     () => convertToFormilySchema(jsonSchema),
@@ -25,8 +27,8 @@ export function DynamicPageRenderEngine({
   return (
     <div className="bg-white text-black m-2 p-2">
       <FormProvider form={form}>
-        <PageSchemaContext.Provider value={formilySchema}>
-          <SchemaField schema={formilySchema} />
+        <PageSchemaContext.Provider value={formilySchema as any}>
+          <SchemaField schema={formilySchema as any} />
         </PageSchemaContext.Provider>
       </FormProvider>
     </div>

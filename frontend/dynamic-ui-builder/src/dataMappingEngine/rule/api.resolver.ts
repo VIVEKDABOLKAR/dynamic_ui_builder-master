@@ -1,4 +1,5 @@
-import apiClient from "../../../api/apiClient";
+
+import apiClient from "../../api/apiClient";
 import { LookupSchema, MappingSchema } from "../../dynamicPageRender/types/JsonSchema";
 import { API_REGISTRY } from "../apiRegistery/ApiRegistery";
 

@@ -1,14 +1,34 @@
-import { defineConfig } from 'vite'
-import react, { reactCompilerPreset } from '@vitejs/plugin-react'
-import babel from '@rolldown/plugin-babel'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
+import react from "@vitejs/plugin-react";
 import path from "path";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    babel({ presets: [reactCompilerPreset()] }),
-    tailwindcss(),
+    dts()
   ],
-})
+
+  build: {
+    lib: {
+      entry: path.resolve(__dirname, "src/index.ts"),
+      name: "DynamicUIBuilder",
+      fileName: "index",
+      formats: ["es", "cjs"]
+    },
+
+    rollupOptions: {
+      external: [
+        "react",
+        "react-dom"
+      ],
+
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM"
+        }
+      }
+    }
+  }
+});
