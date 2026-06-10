@@ -9,7 +9,11 @@ export default defineConfig({
     dts({
       insertTypesEntry: true,
       rollupTypes: true,
-      outDir: "dist"
+      outDir: "dist",
+      entryRoot: "src",
+      tsconfigPath: "./tsconfig.json"
+
+
     })
   ],
 
@@ -25,6 +29,7 @@ export default defineConfig({
       external: [
         "react",
         "react-dom",
+        "react/jsx-runtime",
 
         "@formily/core",
         "@formily/react",
@@ -36,11 +41,9 @@ export default defineConfig({
         "@emotion/styled",
 
         "ag-grid-react",
+        "ag-grid-community",
 
         "react-router-dom",
-
-        "axios",
-        "dayjs"
       ],
 
       output: {

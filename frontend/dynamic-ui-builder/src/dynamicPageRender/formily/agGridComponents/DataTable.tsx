@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 
 import { AgGridReact } from "ag-grid-react";
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community'
 import { MappingSchema } from "../../types/JsonSchema";
 import { resolveMapping } from "../../../dataMappingEngine/mappingResolver";
 import { DynamicRows, generateColumns } from "../../../dataMappingEngine/utils/generateColumns";
 
 // import "ag-grid-community/styles/ag-grid.css";
 // import "ag-grid-community/styles/ag-theme-alpine.css";
+
+
+ModuleRegistry.registerModules([AllCommunityModule]);
+
 
 export interface DataTableProps {
 

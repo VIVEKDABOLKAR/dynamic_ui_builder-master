@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dynamic-ui-builder": "file:../../frontend/dynamic-ui-builder/dynamic-ui-builder-0.0.1.tgz",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

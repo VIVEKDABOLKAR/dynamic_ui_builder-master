@@ -10,6 +10,10 @@ import { PageSchemaContext } from './context/PageSchemaContext';
 import type { DynamicPageSchema } from './types/JsonSchema';
 import { ContextSchema, LibraryContext } from './types/Context';
 
+
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+
 interface DynamicPageRenderEngineProps {
     jsonSchema: DynamicPageSchema;
     context: ContextSchema
@@ -30,13 +34,15 @@ export function DynamicPageRenderEngine({
 
     return (
         <LibraryContext.Provider value={context}>
-            <div className="bg-white text-black m-2 p-2">
-                <FormProvider form={form}>
-                    <PageSchemaContext.Provider value={formilySchema as any}>
-                        <SchemaField schema={formilySchema as any} />
-                    </PageSchemaContext.Provider>
-                </FormProvider>
-            </div>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <div className="bg-white text-black m-2 p-2">
+                    <FormProvider form={form}>
+                        <PageSchemaContext.Provider value={formilySchema as any}>
+                            <SchemaField schema={formilySchema as any} />
+                        </PageSchemaContext.Provider>
+                    </FormProvider>
+                </div>
+            </LocalizationProvider>
         </LibraryContext.Provider>
     );
 }

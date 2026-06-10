@@ -2,22 +2,20 @@
   "name": "dynamic-ui-builder",
   "version": "0.0.1",
   "type": "module",
-
   "main": "./dist/index.js",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-
+  "types": "./dist/src/index.d.ts",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
-
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     }
   },
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -27,18 +25,19 @@
   "peerDependencies": {
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19",
-
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-
     "@mui/material": "^9",
     "@mui/x-date-pickers": "^9",
-
     "@formily/core": "^2",
     "@formily/react": "^2",
-
     "ag-grid-react": "^35",
-    "react-router-dom": "^7"
+    "ag-grid-community": "^35",
+    "react-router-dom": "^7",
+    "dayjs": "^1.11.21"
+  },
+  "dependencies": {
+    "axios": "^1.16.1"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
