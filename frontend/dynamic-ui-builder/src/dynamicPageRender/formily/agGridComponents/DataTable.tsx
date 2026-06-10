@@ -8,7 +8,7 @@ import { DynamicRows, generateColumns } from "../../../dataMappingEngine/utils/g
 // import "ag-grid-community/styles/ag-grid.css";
 // import "ag-grid-community/styles/ag-theme-alpine.css";
 
-interface DataTableProps {
+export interface DataTableProps {
 
     label?: string;
 

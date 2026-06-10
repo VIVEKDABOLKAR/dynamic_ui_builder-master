@@ -1,7 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useLibraryContext } from "../types/Context";
 
 export function useActionContext(formData?: any) {
-  const navigate = useNavigate();
+  const {onNavigate} = useLibraryContext();
+  
 
   const showToast = (message: string) => {
     console.log("TOAST:", message);
@@ -9,7 +11,7 @@ export function useActionContext(formData?: any) {
   };
 
   return {
-    navigate,
+    navigate: onNavigate,
     showToast,
     formData,
   };

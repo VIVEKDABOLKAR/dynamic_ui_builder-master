@@ -1,7 +1,6 @@
 import { getComponentConverter } from "../../registry/componentRegistry";
-import { ComponentSchema } from "../types/JsonSchema";
-import { ActionRegistry } from "../types/JsonSchema";
-import { FormilyFieldSchema } from "../types/JsonSchemaFormily";
+import type { ComponentSchema, ActionRegistry } from "../types/JsonSchema";
+import type { FormilyFieldSchema } from "../types/JsonSchemaFormily";
 import { convertButton } from "./rules/button.converter";
 import { convertCard } from "./rules/card.converter";
 import { convertCheckbox } from "./rules/checkbox.converter";

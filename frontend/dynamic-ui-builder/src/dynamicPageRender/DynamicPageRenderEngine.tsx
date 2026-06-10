@@ -1,36 +1,42 @@
 import React, { useMemo } from 'react';
-import { FormProvider, ISchema } from '@formily/react';
+import { FormProvider } from '@formily/react';
+import type { ISchema } from '@formily/react';
 
 import { convertToFormilySchema } from './JsonConvert';
 import { createForm } from '@formily/core';
 
 import { SchemaField } from './formily/SchemaField';
 import { PageSchemaContext } from './context/PageSchemaContext';
-import { DynamicPageSchema } from './types/JsonSchema';
+import type { DynamicPageSchema } from './types/JsonSchema';
+import { ContextSchema, LibraryContext } from './types/Context';
 
 interface DynamicPageRenderEngineProps {
-  jsonSchema: DynamicPageSchema;
-  data?: Record<string, any>;
+    jsonSchema: DynamicPageSchema;
+    context: ContextSchema
+    data?: Record<string, any>;
 }
 
 export function DynamicPageRenderEngine({
-  jsonSchema,
-  data,
+    jsonSchema,
+    context,
+    data,
 }: DynamicPageRenderEngineProps): any {
-  const formilySchema = useMemo(
-    () => convertToFormilySchema(jsonSchema),
-    [jsonSchema]
-  );
+    const formilySchema = useMemo(
+        () => convertToFormilySchema(jsonSchema),
+        [jsonSchema]
+    );
 
-  const form = useMemo(() => createForm(), []);
+    const form = useMemo(() => createForm(), []);
 
-  return (
-    <div className="bg-white text-black m-2 p-2">
-      <FormProvider form={form}>
-        <PageSchemaContext.Provider value={formilySchema as any}>
-          <SchemaField schema={formilySchema as any} />
-        </PageSchemaContext.Provider>
-      </FormProvider>
-    </div>
-  );
+    return (
+        <LibraryContext.Provider value={context}>
+            <div className="bg-white text-black m-2 p-2">
+                <FormProvider form={form}>
+                    <PageSchemaContext.Provider value={formilySchema as any}>
+                        <SchemaField schema={formilySchema as any} />
+                    </PageSchemaContext.Provider>
+                </FormProvider>
+            </div>
+        </LibraryContext.Provider>
+    );
 }

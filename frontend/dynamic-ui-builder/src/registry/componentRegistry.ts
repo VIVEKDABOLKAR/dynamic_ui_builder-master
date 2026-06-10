@@ -1,5 +1,5 @@
-import { ActionRegistry, ComponentSchema } from "../dynamicPageRender/types/JsonSchema";
-import { FormilyFieldSchema } from "../dynamicPageRender/types/JsonSchemaFormily";
+import type { ActionRegistry, ComponentSchema } from "../dynamicPageRender/types/JsonSchema";
+import type { FormilyFieldSchema } from "../dynamicPageRender/types/JsonSchemaFormily";
 
 /**
  * it is type defination of the component to formily field schema convert 

@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 
-interface HeadingProps {
+export interface HeadingProps {
   text: string;
   variant?: any;
   align?: "left" | "center" | "right";

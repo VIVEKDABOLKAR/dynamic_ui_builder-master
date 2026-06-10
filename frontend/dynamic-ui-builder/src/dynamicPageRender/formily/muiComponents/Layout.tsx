@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 
-interface LayoutProps {
+export interface LayoutProps {
   direction?: "row" | "column";
   gap?: number | string;
   justifyContent?: React.CSSProperties["justifyContent"];

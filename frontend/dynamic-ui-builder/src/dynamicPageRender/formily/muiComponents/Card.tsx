@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-interface CardProps {
+export interface CardProps {
   title?: string;
   description?: string;
   width?: string;

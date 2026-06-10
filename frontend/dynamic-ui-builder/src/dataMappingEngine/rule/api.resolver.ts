@@ -1,6 +1,5 @@
-
-import apiClient from "../../api/apiClient";
-import { LookupSchema, MappingSchema } from "../../dynamicPageRender/types/JsonSchema";
+import apiClient  from "../../api/apiClient.js"
+import type { LookupSchema, MappingSchema } from "../../dynamicPageRender/types/JsonSchema";
 import { API_REGISTRY } from "../apiRegistery/ApiRegistery";
 
 function extractByPath(data: any, path?: string) {

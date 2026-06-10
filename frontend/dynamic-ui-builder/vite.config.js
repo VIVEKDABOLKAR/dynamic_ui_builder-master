@@ -1,34 +1,56 @@
 import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
 import react from "@vitejs/plugin-react";
+import dts from "vite-plugin-dts";
 import path from "path";
 
 export default defineConfig({
   plugins: [
     react(),
-    dts()
+    dts({
+      insertTypesEntry: true,
+      rollupTypes: true,
+      outDir: "dist"
+    })
   ],
 
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "DynamicUIBuilder",
-      fileName: "index",
-      formats: ["es", "cjs"]
+      formats: ["es"],
+      fileName: () => "index.js"
     },
 
     rollupOptions: {
       external: [
         "react",
-        "react-dom"
+        "react-dom",
+
+        "@formily/core",
+        "@formily/react",
+
+        "@mui/material",
+        "@mui/x-date-pickers",
+
+        "@emotion/react",
+        "@emotion/styled",
+
+        "ag-grid-react",
+
+        "react-router-dom",
+
+        "axios",
+        "dayjs"
       ],
 
       output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM"
-        }
+        preserveModules: false,
+        exports: "named"
       }
-    }
+    },
+
+    sourcemap: false,
+    emptyOutDir: true,
+    minify: true
   }
 });

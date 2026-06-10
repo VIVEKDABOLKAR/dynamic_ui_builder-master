@@ -3,13 +3,13 @@ import { registerBuiltins } from "./registry/registerBuiltins";
 //init component convert registery
 registerBuiltins();
 
-export { DynamicRenderer } from "./DynamicRenderer";
+export { DynamicRenderer } from "./DynamicRenderer.js";
 
 
 
 export type {
   DynamicRendererProps
-} from "./DynamicRenderer";
+} from "./DynamicRenderer.tsx";
 
 export type {
   ComponentSchema,

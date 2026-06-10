@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+
+    "jsx": "react-jsx",
+
+    "strict": true,
+
+    "declaration": true,
+    "declarationMap": true,
+
+    "sourceMap": false,
+
+    "skipLibCheck": true,
+
+    "isolatedModules": true,
+
+    "verbatimModuleSyntax": false, //to stop type import error we make it false
+
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "checkJs": false
+  },
+
+  "include": [
+    "src"
+  ],
+
+  "exclude": [
+    "dist",
+    "node_modules",
+    "src/demo"
+  ]
+}
